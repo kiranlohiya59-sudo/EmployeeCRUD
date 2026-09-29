@@ -12,8 +12,8 @@ pipeline {
 
         stage('Maven Build') {
             steps {
-                echo 'Building Spring Boot application'
-                bat 'mvn clean package -DskipTests'
+                echo 'Building Spring Boot application using Docker'
+                bat '"C:\\Users\\USER\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" run --rm -v "%CD%:/app" -w /app maven:3.9-eclipse-temurin-21 mvn clean package -DskipTests'
             }
         }
 
