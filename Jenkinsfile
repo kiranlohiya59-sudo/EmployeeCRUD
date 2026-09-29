@@ -14,7 +14,11 @@ pipeline {
                 bat 'mvnw.cmd clean package -DskipTests'
             }
         }
-
+stage('Docker Build') {
+    steps {
+        bat 'docker build -t employeecrud:latest .'
+    }
+}
         stage('Success') {
             steps {
                 echo 'Build completed successfully!'
